@@ -8,10 +8,11 @@ export const metadata = {
   description: 'Discover and share AI prompts',
 }
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+const RootLayout = ({ children, session }: { children: React.ReactNode, session: any }) => {
   return (
     <html lang="en">
         <body>
+          <Provider session={session}>
             <div className="main">
                 <div className="gradient" />
             </div>
@@ -19,6 +20,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                 <Nav />
                 {children}
             </main>
+          </Provider>
         </body>
     </html>
   )
