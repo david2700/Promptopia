@@ -17,11 +17,13 @@ export const connectToDB = async () => {
 
         await mongoose.connect(process.env.MONGODB_URI, {
             dbName: "share_prompt",
+            connectTimeoutMS: 60000, // 60 seconds
+            socketTimeoutMS: 60000,
         });
 
         isConnected = true;
         console.log('MongoDB connected');
     } catch (error) {
-        console.log(error);
+        console.log("Error connecting to MongoDB:", error, "*End of error message*");
     }
 }
