@@ -2,7 +2,7 @@ import { connectToDB } from "@/utils/database";
 import Prompt from "@/models/prompt";
 
 // GET (read)
-export const GET = async (req: Request, {params}: {params: {id: string}}) => {
+export const GET = async (req: Request, {params}: {params: any}) => {
     try {
         await connectToDB();
 
@@ -17,7 +17,7 @@ export const GET = async (req: Request, {params}: {params: {id: string}}) => {
 }
 
 // PATCH (update)
-export const PATCH = async (request: Request, {params}: {params: {id: string}}) => {
+export const PATCH = async (request: Request, {params}: {params: any}) => {
     const { prompt, tag} = await request.json()
 
     try {
@@ -39,7 +39,7 @@ export const PATCH = async (request: Request, {params}: {params: {id: string}}) 
 }
 
 // DELETE (delete)
-export const DELETE = async (request: Request, {params}: {params: {id: string}}) => {
+export const DELETE = async (request: Request, {params}: {params: any}) => {
     try {
         await connectToDB();
 
